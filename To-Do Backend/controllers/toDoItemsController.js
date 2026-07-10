@@ -1,12 +1,23 @@
 const TodoItem = require('../models/toDoItemModel');
 
 exports.createToDoItem = async (req, res, next) => {
-    console.log(req.body);
+  try {
+    console.log("Received:", req.body);
+
     const { task, date } = req.body;
-    const todoItem = new TodoItem({task, date});
-    await todoItem.save();
-    res.status(201).json(todoItem);
-}
+
+    const todoItem = new TodoItem({ task, date });
+
+    const savedItem = await todoItem.save();
+
+    console.log("Saved:", savedItem);
+
+    res.status(201).json(savedItem);
+  } catch (err) {
+    console.error("Save Error:", err);
+    res.status(500).json({ error: err.message });
+  }
+};
 
 exports.getToDoItems = async (req, res, next) => {
     const todoItems = await TodoItem.find();
