@@ -23,7 +23,7 @@ app.use(cors());
 app.use("/api/todo", todoItemsRouter);
 app.use(errorController.Error404);
  
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect(DB_PATH).then(() => {
   console.log("Connected to MongoDB.");
