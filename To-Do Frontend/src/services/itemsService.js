@@ -24,7 +24,7 @@ export const deleteItemFromServer = async (id) => {
 }
 
 export const markItemCompletedOnServer = async (id) => {
-  const response = await fetch(`fetch("https://to-do-website-73my.onrender.com/api/todos")${id}/completed`, {
+  const response = await fetch(`https://to-do-website-73my.onrender.com/api/todo/${id}/completed`, {
     method: "PUT",
   });
   const item = await response.json();
