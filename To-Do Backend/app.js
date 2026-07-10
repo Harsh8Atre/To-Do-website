@@ -7,7 +7,7 @@ const {default: mongoose} = require('mongoose');
 const rootDir = require('./utils/pathUtil');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const DB_PATH = "mongodb+srv://harsh:root@airbnbcluster.f2ldhq8.mongodb.net/todo?appName=airbnbCluster";
+const DB_PATH = process.env.MONGODB_URI;
 
 //Local Module
 const errorController = require('./controllers/ErrorController');
