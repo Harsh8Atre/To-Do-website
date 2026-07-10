@@ -17,14 +17,14 @@ export const getItemsFromServer = async () => {
 }
 
 export const deleteItemFromServer = async (id) => {
-  await fetch(`http://localhost:3000/api/todo/${id}`, {
+  await fetch(`fetch("https://to-do-website-73my.onrender.com/api/todos")${id}`, {
     method: "DELETE",
   });
   return id;
 }
 
 export const markItemCompletedOnServer = async (id) => {
-  const response = await fetch(`http://localhost:3000/api/todo/${id}/completed`, {
+  const response = await fetch(`fetch("https://to-do-website-73my.onrender.com/api/todos")${id}/completed`, {
     method: "PUT",
   });
   const item = await response.json();
